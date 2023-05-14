@@ -14,6 +14,9 @@
 Object Detection application right in your browser.
 Serving YOLOv8 in browser using onnxruntime-web with `wasm` backend.
 
+## Demo
+- https://shrimp-detector.netlify.app
+
 ## Setup
 
 ```bash
