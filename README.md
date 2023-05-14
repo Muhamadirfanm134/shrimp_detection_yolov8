@@ -1,4 +1,4 @@
-# YOLOv8 with onnxruntime-web
+# Shrimp Detector App with Yolov8 and onnxruntime-web
 
 <p align="center">
   <img src="./sample.png" />
@@ -17,8 +17,8 @@ Serving YOLOv8 in browser using onnxruntime-web with `wasm` backend.
 ## Setup
 
 ```bash
-git clone https://github.com/Hyuto/yolov8-onnxruntime-web.git
-cd yolov8-onnxruntime-web
+git clone https://github.com/Muhamadirfanm134/shrimp_detection_yolov8
+cd shrimp_detection_yolov8
 yarn install # Install dependencies
 ```
 
@@ -43,8 +43,6 @@ size       : 13 Mb
 **NMS**
 
 ONNX model to perform NMS operator [CUSTOM].
-
-[![nms-yolov8.onnx](https://img.shields.io/badge/nms--yolov8.onnx-black?logo=onnx)](https://netron.app/?url=https://raw.githubusercontent.com/Hyuto/yolov8-onnxruntime-web/master/public/model/nms-yolov8.onnx)
 
 ## Use another model
 

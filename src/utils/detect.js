@@ -1,7 +1,7 @@
 import cv from "@techstark/opencv-js";
 import { Tensor } from "onnxruntime-web";
-import { renderBoxes } from "./renderBox";
 import labels from "./labels.json";
+import { renderBoxes } from "./renderBox";
 
 const numClass = labels.length;
 
@@ -38,13 +38,20 @@ export const detectImage = async (
     ])
   ); // nms config tensor
   const { output0 } = await session.net.run({ images: tensor }); // run session and get output layer
-  const { selected } = await session.nms.run({ detection: output0, config: config }); // perform nms and filter boxes
+
+  const { selected } = await session.nms.run({
+    detection: output0,
+    config: config,
+  }); // perform nms and filter boxes
 
   const boxes = [];
 
   // looping through output
   for (let idx = 0; idx < selected.dims[1]; idx++) {
-    const data = selected.data.slice(idx * selected.dims[2], (idx + 1) * selected.dims[2]); // get rows
+    const data = selected.data.slice(
+      idx * selected.dims[2],
+      (idx + 1) * selected.dims[2]
+    ); // get rows
     const box = data.slice(0, 4);
     const scores = data.slice(4); // classes probability scores
     const score = Math.max(...scores); // maximum probability scores
@@ -61,11 +68,16 @@ export const detectImage = async (
       label: label,
       probability: score,
       bounding: [x, y, w, h], // upscale box
-    }); // update boxes to draw later
+    });
+    // update boxes to draw later}
   }
 
   renderBoxes(canvas, boxes); // Draw boxes
   input.delete(); // delete unused Mat
+
+  const totalShrimp = boxes.filter((box) => box.label === 1).length;
+
+  return totalShrimp;
 };
 
 /**

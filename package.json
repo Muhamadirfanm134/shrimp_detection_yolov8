@@ -2,11 +2,15 @@
   "name": "shrimp_detection_yolov8",
   "version": "0.1.0",
   "dependencies": {
+    "@ant-design/icons": "^5.0.1",
     "@techstark/opencv-js": "4.5.5-release.2",
+    "antd": "^5.4.7",
+    "boxicons": "^2.1.4",
     "onnxruntime-web": "^1.13.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "typewriter-effect": "^2.19.0"
   },
   "scripts": {
     "start": "craco start",

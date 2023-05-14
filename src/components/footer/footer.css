@@ -1,0 +1,13 @@
+.footer {
+  background: rgb(255, 255, 255);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #333;
+  bottom: 0;
+  font-size: 10px;
+  width: 100%;
+}
