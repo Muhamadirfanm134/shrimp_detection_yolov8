@@ -63,7 +63,7 @@ class Colors {
   constructor() {
     this.palette = [
       "#FF3838",
-      "#FF9D97",
+      "#5856D6",
       "#FF701F",
       "#FFB21D",
       "#CFD231",
