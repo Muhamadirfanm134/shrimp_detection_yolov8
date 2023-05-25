@@ -9,7 +9,7 @@ export const About = () => {
       <Divider orientation="left">About This App</Divider>
 
       <p style={{ margin: "0 10px", textAlign: "justify", fontSize: "12px" }}>
-        This App was built to detect shrimp using onnxruntime-web and Yolov8.
+        This App was built to detect shrimp using onnxruntime-web and YOLOv8.
         The dataset was trained using yolov8 on Google Colab on 300 epochs for
         about 7.5 hours. The datasets have a total of 6630 images.
       </p>
