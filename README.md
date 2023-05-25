@@ -1,6 +1,10 @@
 # Shrimp Detector App with Yolov8 and onnxruntime-web
 
 <p align="center">
+  <img src="./sample_header.png" />
+</p>
+
+<p align="center">
   <img src="./sample.png" />
 </p>
 
