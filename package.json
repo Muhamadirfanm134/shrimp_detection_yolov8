@@ -43,6 +43,5 @@
     "gh-pages": "^4.0.0"
   },
   "main": "index.js",
-  "repository": "https://github.com/Muhamadirfanm134/shrimp_detection_yolov8.git",
-  "homepage": "https://muhamadirfanm134.github.io/shrimp_detection_yolov8/"
+  "repository": "https://github.com/Muhamadirfanm134/shrimp_detection_yolov8.git"
 }
