@@ -28,7 +28,7 @@ const App = () => {
   const modelInputShape = [1, 3, 800, 800];
   const topk = 100;
   const iouThreshold = 0.45;
-  const scoreThreshold = 0.2;
+  const scoreThreshold = 0.3;
 
   // wait until opencv.js initialized
   cv["onRuntimeInitialized"] = async () => {
@@ -54,6 +54,7 @@ const App = () => {
     setLoading(null);
   };
 
+  // Upload and detect image
   const handleUpload = (file) => {
     // handle next image to detect
     if (image) {
@@ -62,9 +63,25 @@ const App = () => {
       URL.revokeObjectURL(image);
       setImage(null);
     }
+
     const url = URL.createObjectURL(file.file.originFileObj); // create image url
     imageRef.current.src = url; // set image source
     setImage(url);
+  };
+
+  // Load image and run detection
+  const onLoadImage = async () => {
+    setTotalShrimp(
+      await detectImage(
+        imageRef.current,
+        canvasRef.current,
+        session,
+        topk,
+        iouThreshold,
+        scoreThreshold,
+        modelInputShape
+      )
+    );
   };
 
   return (
@@ -103,24 +120,7 @@ const App = () => {
 
           <div style={{ display: image ? "block" : "none" }}>
             <div className="content">
-              <img
-                ref={imageRef}
-                src="#"
-                alt="content"
-                onLoad={async () => {
-                  setTotalShrimp(
-                    await detectImage(
-                      imageRef.current,
-                      canvasRef.current,
-                      session,
-                      topk,
-                      iouThreshold,
-                      scoreThreshold,
-                      modelInputShape
-                    )
-                  );
-                }}
-              />
+              <img ref={imageRef} src="#" alt="content" onLoad={onLoadImage} />
               <canvas
                 id="canvas"
                 width={modelInputShape[2]}

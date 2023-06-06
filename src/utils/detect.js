@@ -24,6 +24,7 @@ export const detectImage = async (
   scoreThreshold,
   inputShape
 ) => {
+  // Initialization
   const [modelWidth, modelHeight] = inputShape.slice(2);
   const [input, xRatio, yRatio] = preprocessing(image, modelWidth, modelHeight);
 
@@ -52,6 +53,7 @@ export const detectImage = async (
       idx * selected.dims[2],
       (idx + 1) * selected.dims[2]
     ); // get rows
+
     const box = data.slice(0, 4);
     const scores = data.slice(4); // classes probability scores
     const score = Math.max(...scores); // maximum probability scores
@@ -75,6 +77,7 @@ export const detectImage = async (
   renderBoxes(canvas, boxes); // Draw boxes
   input.delete(); // delete unused Mat
 
+  // Define total shrimp detected
   const totalShrimp = boxes.filter((box) => box.label === 1).length;
 
   return totalShrimp;
