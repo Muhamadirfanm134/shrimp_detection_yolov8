@@ -1,0 +1,33 @@
+# using curl
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+# or using wget
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+# checking NVM version
+nvm --version
+
+# install Node last version
+nvm install
+
+# Setup React project using CRA with Yarn
+yarn create react-app shrimp_detection_yolov8
+
+# Install default React Dependency
+cd shrimp_detection_yolov8
+yarn install
+
+# Run React project
+yarn start
+
+# Perintah untuk melakukan instalasi dependency yang dibutuhkan
+yarn add onnxruntime-web antd boxicons @ant-design/icons @techstark/opencv-js typewriter-effect @craco/craco copy-webpack-plugin
+
+# Add code to staging
+git add .
+
+# Add commit message
+git commit -m 'commit-message-here'
+
+# Push code to github
+git push
